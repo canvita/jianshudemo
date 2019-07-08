@@ -3,10 +3,10 @@ import Header from './common/Header';
 import store from './store';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { GlobalStyle } from './resetCss'
+import { GlobalStyle } from './resetCss';
 
 import Home from './pages/home';
-import Detail from './pages/detail';
+import Detail from './pages/article';
 
 export default class App extends React.Component {
   render() {
@@ -17,7 +17,7 @@ export default class App extends React.Component {
         <BrowserRouter basename="/#">
           <>
             <Route path="/" exact component={Home}></Route>
-            <Route path="/detail" exact component={Detail}></Route>
+            <Route path="/article/:id" exact component={Detail}></Route>
           </>
         </BrowserRouter>
       </Provider>

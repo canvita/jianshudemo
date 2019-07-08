@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import logo from '../../static/nav-logo.png';
-import { constants } from './store'
 export const HeaderWrapper = styled.div`
   height: 55px;
   margin-bottom: 20px;

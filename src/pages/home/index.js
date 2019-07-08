@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+
 import { connect } from 'react-redux';
 import { 
   Banner,
@@ -12,7 +13,7 @@ import Writters from './components/Writters';
 
 import { actionCreator } from './store';
 
-class Home extends React.Component{
+class Home extends PureComponent {
   constructor(props){
     super(props);
   }

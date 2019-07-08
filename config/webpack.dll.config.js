@@ -14,7 +14,8 @@ module.exports = {
       'redux-thunk',
       'redux-immutable',
       'immutable',
-      'axios'
+      'axios',
+      'react-loadable'
     ]
   },
   output: {

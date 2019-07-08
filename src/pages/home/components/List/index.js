@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 import { ListItem, ListWrapper } from './style'
-export default props => {
-  return (
-    <ListWrapper>
-      {
-        props.data.map((item, index) => <ListItem key={index} src={item} />)
-      }
-    </ListWrapper>
-  )
+export default class List extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <ListWrapper>
+        {
+          this.props.data.map((item, index) => <ListItem key={item.id} src={item.url} />)
+        }
+      </ListWrapper>
+    )
+  }
 }

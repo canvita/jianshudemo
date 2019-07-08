@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Article } from './style'
 import { Link } from 'react-router-dom';
-export default props => {
-  const { id, title, desp, url, value, writter, comments, likes } = props.data;
-  return(
-    <Article>
-      <div className="content">
-        <Link to={`/article/:${id}`} className="title">{title}</Link>
-        <p className="desp">
-         {desp} 
-        </p> 
-        <div>
-          <span className="meta">{value}</span>
-          <span className="meta">{writter}</span>
-          <span className="meta">{comments}</span>
-          <span className="meta">{likes}</span>
+
+export default class Articles extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { id, title, content, imgURL, price, writer, comment, like } = this.props.data;
+    return(
+      <Article>
+        <div className="content">
+          <Link to={`/article/${id}`} className="title">{title}</Link>
+          <p className="desp">
+           {content} 
+          </p> 
+          <div>
+            <span className="meta">{price}</span>
+            <span className="meta">{writer}</span>
+            <span className="meta">{comment}</span>
+            <span className="meta">{like}</span>
+          </div>
         </div>
-      </div>
-      <img className="img" src={url} />  
-    </Article>
-  )
+        <img className="img" src={imgURL} />  
+      </Article>
+    )
+  }
 }
