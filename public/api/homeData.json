@@ -1,0 +1,79 @@
+{
+  "banner": "https://upload.jianshu.io/admin_banners/web_images/4677/a6d5d4ae2540976a7bd62e9db466b0301414d319.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540",
+  "List": [{
+      "id": 1,
+      "url": "https://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png"
+    },
+    {
+      "id": 2,
+      "url": "https://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
+    },
+    {
+      "id": 3,
+      "url": "https://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png"
+    },
+    {
+      "id": 4,
+      "url": "https://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "imgURL": "//upload-images.jianshu.io/upload_images/15430315-23c89578657bad4f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240",
+      "content": "转载自（读史 2018-11-07） 胸中藏有大志的人，往往是一个很自律的人。 重庆谈判中，蒋介石曾对秘书陈布雷说：“毛泽东不可轻视。他嗜烟如命...",
+      "title": "所有优秀背后，都是苦行僧般的自律 （深度好文",
+      "price": "1.1",
+      "writer": "无欲则刚_8ba6",
+      "comment": "2",
+      "like": "9"
+    },
+    {
+      "id": 2,
+      "imgURL": "//upload-images.jianshu.io/upload_images/14015702-3f584d28c2500f44?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240",
+      "content": "文| 老k 来源 |娱乐新青年（ID：iiiquan） 最近《海王》大火，剧中有这样一幕触目惊心的剧情： 海王的弟弟为了报复人类，用巨浪把人们排...",
+      "title": "伊能静全裸出镜，《海王》12亿票房背后，100000条生命等待死去",
+      "price": "98.1",
+      "writer": "青梅悠悠",
+      "comment": "130",
+      "like": "224"
+    }
+  ],
+  "writters": [
+    {
+      "id": 1,
+      "avatorUrl": "//upload.jianshu.io/users/upload_avatars/7290998/f64f5ef0-def0-4b26-beb3-b9d88f060ba0.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp",
+      "name": "怀念远人",
+      "font": "650.6k",
+      "like": "22.4k"
+    },
+    {
+      "id": 2,
+      "avatorUrl": "//upload.jianshu.io/users/upload_avatars/3730494/4a86a2a7-d5b9-47f1-969a-d8ef4711488b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp",
+      "name": "格列柯南",
+      "font": "750.3k",
+      "like": "12.5k"
+    },
+    {
+      "id": 3,
+      "avatorUrl": "//upload.jianshu.io/users/upload_avatars/5545154/1a3d5ed6-9ad1-44b3-9457-3e6a29dd1b71.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp",
+      "name": "徐林Grace",
+      "font": "670.4k",
+      "like": "5.8k"
+    },
+    {
+      "id": 4,
+      "avatorUrl": "//upload.jianshu.io/users/upload_avatars/5205317/1179d71b-e7c6-4023-89e8-bba25f88272b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp",
+      "name": "胡七筒",
+      "font": "318.2k",
+      "like": "10.1k"
+    },
+    {
+      "id": 5,
+      "avatorUrl": "//upload.jianshu.io/users/upload_avatars/8781442/79bf6acc-5dd3-49d1-9e2b-6c58066c1442.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp",
+      "name": "溜溜心情",
+      "font": "420.3k",
+      "like": "15.2k"
+    }
+  ]
+}

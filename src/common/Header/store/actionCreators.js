@@ -19,7 +19,7 @@ export default {
   },
   getTrendingListAction() {
     return dispatch => {
-      axios.get('/tredingList.json').then(res => {
+      axios.get('/api/tredingList.json').then(res => {
         console.log(res);
         dispatch(this.setTrendingListAction(res.data));
       })

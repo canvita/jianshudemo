@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const shouldUseDllPlugin = true;
 
@@ -58,17 +59,26 @@ module.exports = function (env) {
     plugins: [
       new HTMLWebpackPlugin({
         template: path.resolve(__dirname, '../src/index.html')
-      }),
-      new CleanWebpackPlugin()
+      }), 
     ].concat(
       isEnvDev ? 
-      [
-        new webpack.HotModuleReplacementPlugin(), 
-      ].concat(
-        shouldUseDllPlugin ? [new webpack.DllReferencePlugin({
-          manifest: path.resolve(__dirname, '../public/vendors.manifest.json')
-        })]  : []
-      ) : []
+      [ new webpack.HotModuleReplacementPlugin() ]
+      .concat(
+        shouldUseDllPlugin ? 
+        [
+          new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname, '../public/vendors.manifest.json')
+          })
+        ]  : []
+      ) : [
+        new CleanWebpackPlugin({
+          dry: true
+        }),
+        new CopyWebpackPlugin([{
+          from: path.resolve(__dirname, '../public/api'),
+          to: path.resolve(__dirname, '../dist/api')
+        }])
+      ]
     )
   }
 }
