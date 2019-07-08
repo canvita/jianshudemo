@@ -19,7 +19,7 @@ const config = {
   plugins:[
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DllReferencePlugin({
-      manifest: path.resolve(__dirname, '../dll/vendors.manifest.json')
+      manifest: path.resolve(__dirname, '../public/vendors.manifest.json')
     })
   ]
 }
