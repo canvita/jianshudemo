@@ -9,7 +9,7 @@
  `shouldUseDllPlugin = false` 时直接运行`npm start`运行项目。
 2. 打包后运行：  
   运行`npm run build`打包文件，然后运行`npm run http`启动本地服务器，在浏览器中输入控制台打印的地址即可运行。
-3. 实现了PWA 的 service-worker 部分，访问一次即可自启动的服务器。
+3. 实现了PWA 的 service-worker 部分，访问一次即可关闭自启动的服务器。
 ## 项目使用的第三方库说明
 1. redux, react-redux: 统一管理数据，以及在react中更方便使用redux
 2. immutable, immutable-redux: 使用不可突变数据，配合 react中的 PureComponent使组件性能提高，以及合并reducer使用。
