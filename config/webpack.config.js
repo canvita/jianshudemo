@@ -2,7 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+
+
 
 const shouldUseDllPlugin = true;
 
@@ -41,7 +44,7 @@ module.exports = function (env) {
           loader: require.resolve('url-loader'),
           options: {
             limit: 10000,
-            name: 'static/media/[name].[hash:8].[ext]',
+            name: '[name].[hash].[ext]',
           },
         },
       ]
@@ -77,7 +80,11 @@ module.exports = function (env) {
         new CopyWebpackPlugin([{
           from: path.resolve(__dirname, '../public/api'),
           to: path.resolve(__dirname, '../dist/api')
-        }])
+        }]),
+        new WorkboxWebpackPlugin.GenerateSW({
+          clientsClaim: true,
+          skipWaiting: true
+        })
       ]
     )
   }
