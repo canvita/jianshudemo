@@ -1,86 +1,59 @@
-import React, { Component } from 'react';
-import List from "./components/List";
-import Recommened from "./components/Recommened";
-import Writer from "./components/Writer";
-import DownloadLink from './components/DownloadLink'
-
-import {
+import React from 'react';
+import { connect } from 'react-redux';
+import { 
+  Banner,
   HomeWrapper,
   HomeLeft,
-  HomeRight,
-  Divider,
-  ReadMore,
-  WriterHeader
-} from './styled'
-import { actionCreators } from './store'
-import { connect } from 'react-redux';
+  HomeRight
+} from './style';
+import Articles from './components/Articles';
+import List from './components/List'
+import Writters from './components/Writters';
 
-class Home extends Component {
+import { actionCreator } from './store';
 
-  componentDidMount(){
-    this.props.getHomeListFun()
+class Home extends React.Component{
+  constructor(props){
+    super(props);
   }
-
   render() {
-    const { listList, recommenedList, writerList, LoadMore, switchWritersFun, page, totalPage, articlePage } = this.props;
-    return (
+    let { banner, list, articles, writters } = this.props;
+    console.log('home-render');
+    return(
       <HomeWrapper>
         <HomeLeft>
-          <img alt='pic' 
-          src='//upload.jianshu.io/admin_banners/web_images/4615/62909ce23863ac5f6a1454c7ba407b85af0a17db.png?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540' 
-          className="banner-image" />
-          <Divider></Divider>
-          <List listList={listList}></List>
-          <ReadMore onClick={() => LoadMore(articlePage)}>阅读更多</ReadMore>
+          <Banner src={banner} />
+          <div>
+            {
+              articles.map(item => (
+                <Articles key={item.id} data={item}></Articles>
+              ))  
+            }
+          </div>
         </HomeLeft>
         <HomeRight>
-          <Recommened recommenedList={recommenedList}></Recommened>
-          <DownloadLink></DownloadLink>
-          <WriterHeader>
-            <div className="title">
-              <span>推荐作者</span>
-              <div className="switch" onClick={() => switchWritersFun(page, totalPage, this.spinIcon)}>
-                <i ref={(icon) => {this.spinIcon = icon}} className='iconfont spin'>&#xe851;</i>换一批
-              </div>
-            </div>
-          </WriterHeader>
-          <Writer writerList={writerList} page={page} totalPage={totalPage}></Writer>
+          <List data={list}/>
+          <Writters data={writters}/>
         </HomeRight>
-      </HomeWrapper>
+      </HomeWrapper> 
     )
+  }
+  componentDidMount() {
+    this.props.getData();
   }
 }
 
-const mapState = (state) => ({
-  topicList: state.getIn(['home', 'topicList']),
-  recommenedList: state.getIn(['home', 'recommenedList']),
-  listList: state.getIn(['home', 'listList']),
-  writerList: state.getIn(['home', 'writerList']),
-  page: state.getIn(['home', 'page']),
-  totalPage: state.getIn(['home', 'totalPage']),
-  articlePage: state.getIn(['home', 'articlePage']),
+const mapState = state => ({
+  banner: state.getIn(['home','banner']),
+  list: state.getIn(['home', 'List']),
+  articles: state.getIn(['home', 'articles']),
+  writters: state.getIn(['home', 'writters'])
 })
 
-const mapDispatch = (dispatch) => ({
-  getHomeListFun(){
-    dispatch(actionCreators.getHomeList())
-  },
-  LoadMore(articlePage) {
-    dispatch(actionCreators.getMoreList(articlePage))
-  },
-  switchWritersFun(page, totalPage, spin) {
-    let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
-    if (originAngle) {
-      originAngle = parseInt(originAngle, 10);
-    } else {
-      originAngle = 0;
-    }
-    spin.style.transform = `rotate(${originAngle + 360}deg)`
-    const curPage = page < (totalPage - 1) 
-    ? page + 1
-    : 0
-    dispatch(actionCreators.switchWriters(curPage));
+const mapDispath = dispatch => ({
+  getData() {
+    dispatch(actionCreator.getHomeDataAction());
   }
 })
 
-export default connect(mapState, mapDispatch)(Home);
+export default connect(mapState, mapDispath)(Home) ;
