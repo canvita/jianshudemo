@@ -2,6 +2,7 @@
 自配置webpack + react 全家桶 实现简书网站的部分前端
 # 项目说明
 ## 运行项目
+--运行`npm install`安装项目依赖包
 1. 开发环境运行：  
  在config/webpack.config.js 中设置(默认为`true`)`shouldUseDllPlugin`。
  `shouldUseDllPlugin = true`时需要先运行 `npm run dll`  打包依赖文件。
